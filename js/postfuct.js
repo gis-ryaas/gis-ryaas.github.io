@@ -4,10 +4,10 @@ import { setCookieWithExpireHour } from "https://jscroot.github.io/cookie/croot.
 
 export default function PostSignUp() {
   let target_url =
-    "https://us-central1-pasabar.cloudfunctions.net/pasabar";
+    "https://us-central1-noted-slice-401902.cloudfunctions.net/gis5";
   let tokenkey = "token";
   let tokenvalue =
-    "8ce70c6acb9b77fa77598219cea3e2a118f807cf799ef52785db5e823a4840ee926202194480929bce0c8638a004d5436e04e03c7bb9633d84ce516904b88953";
+    "daedf642c2bc133a93dc3ef2d128728247773d865401540ee302299f80d9fc264658b2bb21f1857690197bf188dd9497908d0449984f31ea4dc4ddc9ac27783f";
   let datainjson = {
     username: getValue("username"),
     password: getValue("password"),
