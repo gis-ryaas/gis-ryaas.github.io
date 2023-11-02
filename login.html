@@ -9,7 +9,7 @@
 <body>
     <div class="login-box">
         <h2>Login</h2>
-        <form onsubmit="event.preventDefault();">
+        <form id="formlogin">
           <div class="user-box">
               <input type="text" id="username" required="">
               <label for="username" class="text-lg">Username</label>
@@ -18,12 +18,10 @@
               <input type="password" id="password" required="">
               <label for="password" class="text-lg">Password</label>
           </div>
-          <input type="submit" value="SUBMIT" id="button"
-          onclick="PostSignUp()"
-          >
+          <button id="submit">login</button>
       </form>
       
       </div>
 </body>
-<script type="module" src="./js/post.js"></script>
+<script type="module" src="./js/controller.js"></script>
 </html>
