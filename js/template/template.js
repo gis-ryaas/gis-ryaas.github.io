@@ -24,7 +24,7 @@ export let UrlLogin = "https://us-central1-noted-slice-401902.cloudfunctions.net
 export let UrlRegister = "https://us-central1-noted-slice-401902.cloudfunctions.net/gisregister";
 export let tableTag="tr";
 export let tableRowClass="content is-small";
-export let token = "yaser"
+export let token = "iyas"
 export let cookie = getCookie("Login")
 export let tableTemplate=`
 <td>#NAME#</td>
