@@ -5,13 +5,14 @@ import {map} from '../config/configpeta.js';
 import Draw from 'https://cdn.skypack.dev/ol/interaction/Draw.js';
 
 export function getTokenFromAPI() {
-    const tokenUrl = "https://us-central1-noted-slice-401902.cloudfunctions.net/gislogin";
+    const tokenUrl = "https://us-central1-noted-slice-401902.cloudfunctions.net/gis5";
     fetch(tokenUrl)
       .then(response => response.json())
       .then(tokenData => {
         if (tokenData.token) {
           userToken = tokenData.token;
           console.log('Token dari API:', userToken);
+          setCookieWithExpireHour('user_token', userToken, 2); // Set the token in cookies
         }
       })
       .catch(error => console.error('Gagal mengambil token:', error));
@@ -173,8 +174,8 @@ export function responseData(results){
 export function ResponsePostLogin(response) {
     if (response && response.token) {
       console.log('Token User:', response.token);
-      setCookieWithExpireHour('Login', response.token, 3);
-      window.location.href = 'https://gis-ryaas.github.io/';
+      setCookieWithExpireHour('user_token', response.token, 3);
+      window.location.href = 'index.html';
       alert("Selamat Datang")
     } else {
       alert('Login gagal. Silakan coba lagi.');
@@ -186,8 +187,8 @@ export function ResponsePostLogin(response) {
   }
 
 export function PostLogin() {
-    const username = getValue("username");
-    const password = getValue("password");
+    const username = getValue("username").value;
+    const password = getValue("password").value;
   
     const data = {
       username: username,
@@ -197,8 +198,8 @@ export function PostLogin() {
   }
 
   export function GetDataForm(){
-    const username = getValue("username");
-    const password = getValue("password");
+    const username = getValue("username").value;
+    const password = getValue("password").value;
     console.log(password)
 
     const data = {
