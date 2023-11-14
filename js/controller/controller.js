@@ -187,8 +187,8 @@ export function ResponsePostLogin(response) {
   }
 
 export function PostLogin() {
-    const username = getValue("username").value;
-    const password = getValue("password").value;
+    const username = getValue("username");
+    const password = getValue("password");
   
     const data = {
       username: username,
@@ -198,8 +198,8 @@ export function PostLogin() {
   }
 
   export function GetDataForm(){
-    const username = getValue("username").value;
-    const password = getValue("password").value;
+    const username = getValue("username");
+    const password = getValue("password");
     console.log(password)
 
     const data = {
