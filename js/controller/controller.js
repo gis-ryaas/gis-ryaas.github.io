@@ -1,39 +1,43 @@
-import {
-    setInner,
-    addChild
-} from "https://jscroot.github.io/element/croot.js";
-import {
-    tableTemplate,
-    tableRowClass,
-    tableTag
-} from "../template/template.js";
-import {
-    map
-} from '../config/peta.js';
+import {setInner,addChild, getValue } from "https://jscroot.github.io/element/croot.js";
+import { setCookieWithExpireHour } from 'https://jscroot.github.io/cookie/croot.js';
+import {tableTemplate, tableRowClass, tableTag} from "../template/template.js";
+import {map} from '../config/configpeta.js';
 import Draw from 'https://cdn.skypack.dev/ol/interaction/Draw.js';
 
+export function getTokenFromAPI() {
+    const tokenUrl = "https://us-central1-noted-slice-401902.cloudfunctions.net/gislogin";
+    fetch(tokenUrl)
+      .then(response => response.json())
+      .then(tokenData => {
+        if (tokenData.token) {
+          userToken = tokenData.token;
+          console.log('Token dari API:', userToken);
+        }
+      })
+      .catch(error => console.error('Gagal mengambil token:', error));
+  }
 
-export function isiRowPoint(value) {
+export function isiRowPoint(value){
     if (value.geometry.type === "Point") {
-        let content = tableTemplate.replace("#TYPE#", value.geometry.type).replace("#NAME#", value.properties.name).replace("#KORDINAT#", value.geometry.coordinates);
-        // console.log(content);
-        addChild("waypointbody", tableTag, tableRowClass, content);
+    let content=tableTemplate.replace("#TYPE#",value.geometry.type).replace("#NAME#",value.properties.name).replace("#KORDINAT#",value.geometry.coordinates);
+    // console.log(content);
+    addChild("lokasi",tableTag,tableRowClass,content);
     }
 }
 
-export function isiRowPolygon(value) {
+export function isiRowPolygon(value){
     if (value.geometry.type === "Polygon") {
-        let content = tableTemplate.replace("#TYPE#", value.geometry.type).replace("#NAME#", value.properties.name).replace("#KORDINAT#", value.geometry.coordinates);
-        // console.log(content);
-        addChild("polygonbody", tableTag, tableRowClass, content);
+    let content=tableTemplate.replace("#TYPE#",value.geometry.type).replace("#NAME#",value.properties.name).replace("#KORDINAT#",value.geometry.coordinates);
+    // console.log(content);
+    addChild("polygon",tableTag,tableRowClass,content);
     }
 }
 
-export function isiRowPolyline(value) {
+export function isiRowPolyline(value){
     if (value.geometry.type === "LineString") {
-        let content = tableTemplate.replace("#TYPE#", value.geometry.type).replace("#NAME#", value.properties.name).replace("#KORDINAT#", value.geometry.coordinates);
-        // console.log(content);
-        addChild("polylinebody", tableTag, tableRowClass, content);
+    let content=tableTemplate.replace("#TYPE#",value.geometry.type).replace("#NAME#",value.properties.name).replace("#KORDINAT#",value.geometry.coordinates);
+    // console.log(content);
+    addChild("line",tableTag,tableRowClass,content);
     }
 }
 
@@ -45,18 +49,15 @@ export function MakeGeojsonFromAPI(value) {
 
     const geojsonString = JSON.stringify(geojsonFeatureCollection, null, 2);
 
-    const blob = new Blob([geojsonString], {
-        type: "application/json"
-    });
+    const blob = new Blob([geojsonString], { type: "application/json" });
 
     const url = URL.createObjectURL(blob);
 
     const link = document.createElement("a");
     link.href = url;
-    
+
     return link;
 }
-
 
 export function drawer(geojson) {
     const source = new ol.source.Vector({
@@ -169,3 +170,49 @@ export function responseData(results){
     results.forEach(isiRowPolyline);
 }
 
+export function ResponsePostLogin(response) {
+    if (response && response.token) {
+      console.log('Token User:', response.token);
+      setCookieWithExpireHour('Login', response.token, 3);
+      window.location.href = 'https://kimseokgis.advocata.me/';
+      alert("Selamat Datang")
+    } else {
+      alert('Login gagal. Silakan coba lagi.');
+    }
+  }
+
+  export function ResponseLogin(result) {
+    ResponsePostLogin(result)
+  }
+
+export function PostLogin() {
+    const username = getValue("username");
+    const password = getValue("password");
+  
+    const data = {
+      username: username,
+      password: password
+    };
+    return data;
+  }
+
+  export function GetDataForm(){
+    const username = getValue("username");
+    const password = getValue("password");
+    console.log(password)
+
+    const data = {
+        username: username,
+        password: password
+    };
+    return data
+}
+
+export function AlertPost(value){
+    alert(value.message + "\nRegistrasi Berhasil")
+    window.location.href= "login.html"
+}
+
+export function ResponsePost(result) {
+    AlertPost(result);
+}
