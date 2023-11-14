@@ -20,11 +20,11 @@ import {getCookie} from "https://jscroot.github.io/cookie/croot.js";
 
 export let URLGeoJson = "https://us-central1-noted-slice-401902.cloudfunctions.net/ryaas";
 export let urlPostGCF = "https://us-central1-noted-slice-401902.cloudfunctions.net/gis5baru";
-export let UrlLogin = "https://us-central1-noted-slice-401902.cloudfunctions.net/gislogin";
-export let UrlRegister = "https://us-central1-noted-slice-401902.cloudfunctions.net/gisregister";
+export let UrlLogin = "https://us-central1-noted-slice-401902.cloudfunctions.net/gis5"
+export let UrlRegister = "https://us-central1-noted-slice-401902.cloudfunctions.net/gisregister"
 export let tableTag="tr";
 export let tableRowClass="content is-small";
-export let token = "iyas"
+export let token = "token"
 export let cookie = getCookie("Login")
 export let tableTemplate=`
 <td>#NAME#</td>
