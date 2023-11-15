@@ -1,6 +1,6 @@
 import {getCookie} from "https://jscroot.github.io/cookie/croot.js";
 
-export let URLGeoJson = "https://us-central1-noted-slice-401902.cloudfunctions.net/ryaas";
+export let URLGeoJson = "https://us-central1-noted-slice-401902.cloudfunctions.net/project-gis";
 export let urlPostGCF = "https://us-central1-noted-slice-401902.cloudfunctions.net/postgeo";
 export let UrlLogin = "https://us-central1-noted-slice-401902.cloudfunctions.net/Login-Gis"
 export let UrlRegister = "https://us-central1-noted-slice-401902.cloudfunctions.net/Register-Gis"
