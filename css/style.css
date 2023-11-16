@@ -91,3 +91,132 @@ body {
   padding: 8px;
   text-align: left;
 }
+
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set a background color and text color for the body */
+body {
+  background-color: #f4f4f4;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+/* Style the navigation bar */
+.navbar {
+  background-color: #007bff;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Style the intro section */
+.intro {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.intro h3 {
+  color: #007bff;
+}
+
+/* Style the map container */
+#map {
+  width: 100%;
+  height: 400px;
+  margin-top: 20px;
+}
+
+/* Style the form and input elements */
+.col-auto {
+  margin-top: 20px;
+}
+
+.input-group {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.input-group label {
+  margin-right: 10px;
+}
+
+.form-select {
+  width: 150px;
+  margin-right: 10px;
+}
+
+.form-control {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Style the popups */
+.ol-popup {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Style the tables */
+#info-table {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.point-table,
+.polygon-table,
+.polyline-table {
+  width: 30%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Style the footer */
+footer {
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
