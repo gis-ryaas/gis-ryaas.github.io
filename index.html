@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryaas Ishlah Ramadhan - Chapter 4 Sistem Informasi Geografis</title>
-    <link rel="stylesheet" href="https://cdn.skypack.dev/ol/ol.css">
+    <title>Chapter 4 Sistem Informasi Geografis</title>
     <link rel="stylesheet" href="./css/style.css" type="text/css" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <meta name="description" content="Simple Table Template To Start Customizing As Per Requirement">
-    <meta name="keywords" content="sistem informasi geografis, Ryaas Ishlah Ramadhan, Teknik Informatika">
-    <!-- Add other meta tags as needed for SEO -->
 
-    <!-- Favicon and other icons -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -21,119 +21,144 @@
     <meta name="msapplication-TileColor" content="#0ed3cf">
     <meta name="theme-color" content="#0ed3cf">
 
-    <!-- Open Graph and Twitter meta tags for better social sharing -->
-    <!-- Replace the content of the meta tags with your specific information -->
     <meta property="og:image" content="https://tailwindcomponents.com/storage/2352/temp70388.png?v=2023-11-16 19:15:27" />
-    <!-- Add other Open Graph and Twitter meta tags as needed -->
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="640" />
+    <meta property="og:image:type" content="image/png" />
+
+    <meta property="og:url" content="https://tailwindcomponents.com/component/simple-table-designs-with-color-variations/landing" />
+    <meta property="og:title" content="Simple Table Designs With Color Variations by amirrahman132132" />
+    <meta property="og:description" content="Simple Table Template To Start Customizing As Per Requirement" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@TwComponents" />
+    <meta name="twitter:title" content="Simple Table Designs With Color Variations by amirrahman132132" />
+    <meta name="twitter:description" content="Simple Table Template To Start Customizing As Per Requirement" />
+    <meta name="twitter:image" content="https://tailwindcomponents.com/storage/2352/temp70388.png?v=2023-11-16 19:15:27" />
 
     <link rel="canonical" href="https://tailwindcomponents.com/component/simple-table-designs-with-color-variations" itemprop="URL">
+    
+    <title>Ryaas Ishlah Ramadhan </title>
 
-    <!-- Tailwind CSS CDN -->
-    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+            <script src="https://cdn.tailwindcss.com"></script>
+    </head>
 
-    <!-- Custom styles -->
-    <style>
-        body {
-            background: #ffffff !important;
-        }
+    <body>
 
-        #map {
-            width: 100%;
-            height: 400px;
-            margin: 0 auto;
-        }
-
-        .intro {
-            background-color: #f2f2f2;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        /* Add other custom styles as needed */
-
-        /* Table Styles */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        .point-table,
-        .polyline-table {
-            margin: 5%;
-        }
-
-        .polyline-table {
-            background: linear-gradient(to right, #4f46e5, #2d3748);
-            color: #ffffff;
-        }
-    </style>
-</head>
+        <div class="intro">
+            <h3>Ryaas Ishlah Ramadhan - 1214076</h3>
+            <h3>D4 Teknik Informatika 3A</h3>
+        </div><br>
+    
+        <div id='map'></div>
+    
+        <div class="col-auto">
+            <span class="input-group">
+              <label class="input-group-text" for="type">Geometry type:</label>
+              <select class="form-select" id="type">
+                <option value="Point">Point</option>
+                <option value="LineString">LineString</option>
+                <option value="Polygon">Polygon</option>
+                <option value="Circle">Circle</option>
+                <option value="None" selected>None</option>
+              </select>
+              <input class="form-control" type="button" value="Undo" id="undo">
+            </span>
+          </div>
+    
+        <input type="hidden" id="idmarker" name="idmarker" value="">
+    
+        <div id="popupinfo" class="ol-popup">
+            <b id="popupinfo-title"></b>
+            <div id="popupinfo-content"></div>
+            <div id="popupinfo-delete">
+                <input type="hidden" id="idmarker" name="idmarker" value="">
+                <button id="hapusbutton" type="button">Hapus</button><button id="hitungcogbutton" type="button">Hitung
+                    COG</button><br>
+            </div>
+    
+        </div>
+    
+        <div id="popup" class="ol-popup">
+            <b id="popup-title">Input Center of Gravity</b><a href="#" id="popup-closer" class="ol-popup-closer"></a>
+            <div id="popup-content"></div>
+            <div id="popup-input">
+                Nama : <input type="text" id="name" name="name" required><br>
+                Volume : <input type="text" id="volume" name="volume" required><br>
+                <input type="hidden" id="long" name="long" value="">
+                <input type="hidden" id="lat" name="lat" value="">
+                <button id="insertmarkerbutton" type="button">Input</button><br>
+            </div>
+        </div>
 
 <body class="bg-gray-200">
     <div class="fixed bottom-0 left-0 right-0 z-40 px-4 py-3 text-center text-white bg-gray-800">
-        This is Ryaas Ishlah Ramadhan's GitHub
+        This a ryaasishlah github 
         <a class="text-gray-200 underline" href="https://tailwindcomponents.com/component/simple-table-designs-with-color-variations">ryaasishlah</a>
     </div>
+    <style>
+    body{background:white!important;}
+</style>
 
-    <div id="info-table">
-        <!-- Point table -->
-        <div class="point-table">
-            <p class="text-lg text-center font-bold m-5">Data Point</p>
-            <table class="rounded-t-lg mx-auto bg-gray-200 text-gray-800" id="pointTable" border="1">
-                <tr class="text-left border-b-2 border-gray-300">
-                    <th class="px-4 py-3">Nama</th>
-                    <th class="px-4 py-3">Koordinat</th>
-                    <th class="px-4 py-3">Type</th>
-                </tr>
-                <tbody id="lokasi"></tbody>
-            </table>
-        </div>
+<div id="info-table">
+    <div class="point-table">
+<p class="text-lg text-center font-bold m-5">Data Point</p>
+<table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800" id="pointTable"  border="1">
 
-        <!-- Polygon table -->
-        <div class="point-table">
-            <p class="text-lg text-center font-bold m-5">Data Polygon</p>
-            <table class="rounded-t-lg mx-auto bg-gray-800 text-gray-200" id="polygonTable" border="1">
-                <tr class="text-left border-b border-gray-300">
-                    <th class="px-4 py-3">Nama</th>
-                    <th class="px-4 py-3">Koordinat</th>
-                    <th class="px-4 py-3">Type</th>
-                </tr>
-                <tbody id="polygon"></tbody>
-            </table>
-        </div>
+  <tr class="text-left border-b-2 border-gray-300">
+    <th class="px-4 py-3">Nama</th>
+    <th class="px-4 py-3">Koordinat</th>
+    <th class="px-4 py-3">Type</th>
+  </tr>
+<tbody id="lokasi"></tbody>
+</table>
+</div>
+<!-- classic design -->
 
-        <!-- LineString table -->
-        <div class="polyline-table">
-            <p class="text-lg text-center font-bold m-5">Data LineString</p>
-            <table class="rounded-t-lg mx-auto text-gray-100" id="polylineTable">
-                <tr class="text-left border-b-2 border-indigo-300">
-                    <th class="px-4 py-3">Nama</th>
-                    <th class="px-4 py-3">Koordinat</th>
-                    <th class="px-4 py-3">Type</th>
-                </tr>
-                <tbody id="line"></tbody>
-            </table>
-        </div>
-    </div>
 
-    <div class="mb-20"></div> <!-- fill for tailwind preview bottom overflow -->
 
-    <script src="https://cdn.jsdelivr.net/npm/ol@v8.1.0/dist/ol.js"></script>
-    <script type="module" src="./js/main.js"></script>
+    <div class="point-table">
+<p class="text-lg text-center font-bold m-5">Data Polygon</p>
+<table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-800 text-gray-200" id="polygonTable" border="1">
+  <tr class="text-left border-b border-gray-300">
+
+    <th class="px-4 py-3">Nama</th>
+    <th class="px-4 py-3">Koordinat</th>
+    <th class="px-4 py-3">Type</th>
+  </tr>
+  <tbody id="polygon"></tbody>
+</table>
+</div>
+
+</table>
+
+<!-- dark design -->
+
+
+    <div class="polyline-table">
+<p class="text-lg text-center font-bold m-5">Data LineString</p>
+<table class="rounded-t-lg m-5 w-5/6 mx-auto text-gray-100 bg-gradient-to-l from-indigo-500 to-indigo-800" id="polylineTable">
+  <tr class="text-left border-b-2 border-indigo-300">
+
+    <th class="px-4 py-3">Nama</th>
+    <th class="px-4 py-3">Koordinat</th>
+    <th class="px-4 py-3">Type</th>
+  </tr>
+  <tbody id="line"></tbody>
+</table>
+</div>
+
+</table>
+</div>
+
+
+<div class="mb-20"></div>
+<!-- fill for tailwind preview bottom overflow -->
+
+<script src="https://cdn.jsdelivr.net/npm/ol@v8.1.0/dist/ol.js"></script>
+<script type="module" src="./js/main.js"></script>
+
 </body>
-
 </html>
+
+
