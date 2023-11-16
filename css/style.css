@@ -183,6 +183,7 @@ body {
 /* Style the tables */
 #info-table {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin-top: 20px;
 }
@@ -190,7 +191,8 @@ body {
 .point-table,
 .polygon-table,
 .polyline-table {
-  width: 30%;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 table {
@@ -208,6 +210,16 @@ th, td {
 th {
   background-color: #007bff;
   color: #fff;
+}
+
+/* Media Queries for responsiveness */
+@media only screen and (min-width: 768px) {
+  .point-table,
+  .polygon-table,
+  .polyline-table {
+      width: 30%;
+      margin-bottom: 0;
+  }
 }
 
 /* Style the footer */
