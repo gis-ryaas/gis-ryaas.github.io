@@ -1,96 +1,31 @@
 @import "https://cdn.skypack.dev/ol/ol.css";
 
-/* Reset some default styles */
-body, h1, h2, h3, p, ul, li {
-  margin: 0;
-  padding: 0;
-}
-
-/* Set a background color and text color for the body */
+html,
 body {
-  background-color: #f4f4f4;
-  color: #333;
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
   margin: 0;
   height: 100%;
 }
 
-/* Style the navigation bar */
-.navbar {
-  background-color: #007bff;
-  padding: 10px;
-}
 
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+    #map {
+        width: 100%; 
+        height: 400px; 
+        margin: 0 auto; 
+    }
 
-.navbar li {
-  display: inline;
-  margin-right: 20px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-}
-
-/* Style the intro section */
-.intro {
-  background-color: #f2f2f2;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.intro h3 {
-  color: #007bff;
-}
-
-/* Style the map container */
-#map {
-  width: 100%;
-  height: 400px;
-  margin: 20px auto; /* Center the map */
-}
-
-/* Style the form and input elements */
-.col-auto {
-  margin-top: 20px;
-}
-
-.input-group {
-  display: flex;
-  margin-bottom: 10px;
-}
-
-.input-group label {
-  margin-right: 10px;
-}
-
-.form-select {
-  width: 150px;
-  margin-right: 10px;
-}
-
-.form-control {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
+    .intro {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    
 /* Popup Styling */
 .ol-popup {
   position: absolute;
   background-color: white;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
   padding: 15px;
   border-radius: 10px;
   border: 1px solid #ccc;
@@ -137,55 +72,22 @@ body {
   font-size: 14px;
 }
 
-/* Style the tables */
-#info-table {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.point-table,
-.polygon-table,
-.polyline-table {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-table {
-  width: 100%;
+/* Style the tables if you have them */
+#pointTable, #polygonTable, #polylineTable {
   border-collapse: collapse;
+  width: 100%;
   margin-top: 10px;
 }
 
-th, td {
-  border: 1px solid #ccc;
+#pointTable td, #polygonTable td, #polylineTable td {
+  border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
 }
 
-th {
-  background-color: #007bff;
-  color: #fff;
-}
-
-/* Media Queries for responsiveness */
-@media only screen and (min-width: 768px) {
-  .point-table,
-  .polygon-table,
-  .polyline-table {
-      width: 30%;
-      margin-bottom: 0;
-  }
-}
-
-/* Style the footer */
-footer {
-  background-color: #007bff;
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+#pointTable th, #polygonTable th, #polylineTable th {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
