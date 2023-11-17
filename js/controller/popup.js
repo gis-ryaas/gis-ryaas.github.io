@@ -5,6 +5,7 @@ import {URLGeoJson, clickpopup, urlPostGCF, cookie} from '../template/template.j
 import {insertMarker,deleteMarker} from './marker.js';
 import {setInner,textBlur,onClick, getValue,setValue} from 'https://jscroot.github.io/element/croot.js';
 import { postWithToken } from "https://jscroot.github.io/api/croot.js";
+import { allCoordinates } from '../main.js';
 
 
 export function onClosePopupClick() {
@@ -19,25 +20,23 @@ export function onDeleteMarkerClick() {
 }
 
 export function onSubmitMarkerClick() {
-    let long = getValue('long');
-    let lat = getValue('lat');
-    let name = getValue('name');
-    let volume = getValue('volume');
-    let type = getValue('type');
-      let data = {
-        "type" : type,
-        "name" : name,
-        "volume" : volume,
-        "coordinates" : [
-          parseFloat(long),parseFloat(lat)
-        ]
-      };
-      postWithToken(urlPostGCF,"Login",cookie,data,afterSubmitCOG);
-    overlay.setPosition(undefined);
-    textBlur('popup-closer');
-      insertMarker(name,long,lat,volume);
-      idmarker.id=idmarker.id+1;
-    console.log(name)
+  let name = getValue('name');
+  let volume = getValue('volume');
+  let type = getValue('type');
+
+  let data = {
+      "type": type,
+      "name": name,
+      "volume": volume,
+      "coordinates": allCoordinates
+  };
+
+  postWithToken(urlPostGCF, "Login", cookie, data, afterSubmitCOG);
+  overlay.setPosition(undefined);
+  textBlur('popup-closer');
+  insertMarker(name, long, lat, volume);
+  idmarker.id = idmarker.id + 1;
+  console.log(name);
 
 }
 
